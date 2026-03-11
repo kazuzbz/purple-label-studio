@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purple Label Studio — Custom Embroidery & Apparel Printing in Los Angeles</title>
+<meta name="description" content="Premium custom embroidery, screen printing, and apparel services in Los Angeles. Caps, patches, jackets, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--white:#fff;--black:#000;--gray:#888;--light:#f5f5f5;--dark:#111}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--black);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* Header */
+header{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06);transition:all .3s}
+header .container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo img{height:40px;width:auto}
+nav{display:flex;gap:32px;align-items:center}
+nav a{font-size:13px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;opacity:.7;transition:opacity .3s}
+nav a:hover{opacity:1}
+.nav-cta{background:var(--black);color:var(--white);padding:10px 24px;border-radius:100px;opacity:1!important;font-size:12px;transition:transform .3s}
+.nav-cta:hover{transform:scale(1.05)}
+
+/* Hero */
+.hero{padding:140px 24px 80px;max-width:1200px;margin:0 auto}
+.hero-tag{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:24px}
+.hero h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
+.hero p{font-size:18px;color:var(--gray);max-width:500px;margin-bottom:40px}
+.hero-btn{display:inline-block;background:var(--black);color:var(--white);padding:16px 40px;border-radius:100px;font-size:14px;font-weight:500;letter-spacing:.5px;transition:transform .3s}
+.hero-btn:hover{transform:scale(1.05)}
+.hero-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:60px}
+.hero-card{border-radius:16px;overflow:hidden;aspect-ratio:3/4;position:relative}
+.hero-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.hero-card:hover img{transform:scale(1.05)}
+
+/* Section base */
+section{padding:100px 24px}
+.section-header{text-align:center;margin-bottom:60px}
+.section-tag{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+.section-title{font-size:clamp(32px,4vw,48px);font-weight:700;letter-spacing:-1px}
+
+/* Services */
+.services{background:var(--light)}
+.services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.service-card{background:var(--white);border-radius:16px;padding:40px 32px;transition:transform .3s}
+.service-card:hover{transform:translateY(-4px)}
+.service-icon{font-size:32px;margin-bottom:20px}
+.service-card h3{font-size:20px;font-weight:600;margin-bottom:12px}
+.service-card p{color:var(--gray);font-size:14px;line-height:1.7}
+
+/* Portfolio */
+.portfolio-filters{display:flex;justify-content:center;gap:8px;margin-bottom:40px;flex-wrap:wrap}
+.filter-btn{padding:8px 20px;border:1px solid #ddd;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;background:transparent;transition:all .3s;font-family:inherit}
+.filter-btn.active,.filter-btn:hover{background:var(--black);color:var(--white);border-color:var(--black)}
+.portfolio-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.portfolio-item{border-radius:12px;overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer;transition:opacity .4s,transform .4s}
+.portfolio-item.hidden{display:none}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.portfolio-item:hover img{transform:scale(1.08)}
+.portfolio-item .overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.7));display:flex;align-items:flex-end;padding:20px;opacity:0;transition:opacity .3s}
+.portfolio-item:hover .overlay{opacity:1}
+.overlay h4{color:var(--white);font-size:14px;font-weight:600}
+.overlay span{color:rgba(255,255,255,.7);font-size:12px;display:block;margin-top:4px}
+
+/* Gallery strip */
+.gallery-strip{padding:0;overflow:hidden}
+.gallery-row{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.gallery-row img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .6s}
+.gallery-row img:hover{transform:scale(1.1)}
+
+/* About */
+.about{background:var(--light)}
+.about-content{max-width:700px;margin:0 auto;text-align:center}
+.about-content p{color:var(--gray);font-size:16px;line-height:1.8;margin-bottom:20px}
+
+/* Contact */
+.contact-content{max-width:600px;margin:0 auto;text-align:center}
+.contact-content p{color:var(--gray);font-size:16px;margin-bottom:32px}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;text-align:left}
+.contact-item{background:var(--light);padding:24px;border-radius:12px}
+.contact-item h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px}
+.contact-item p{color:var(--black);font-size:15px;margin:0}
+
+/* Footer */
+footer{background:var(--dark);color:var(--white);padding:60px 24px;text-align:center}
+.footer-logo img{height:36px;width:auto;margin:0 auto 20px;filter:invert(1)}
+footer p{color:rgba(255,255,255,.4);font-size:13px}
+
+/* Animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Mobile */
+@media(max-width:768px){
+  nav{display:none}
+  .hero h1{font-size:36px;letter-spacing:-1px}
+  .hero-cards{grid-template-columns:repeat(2,1fr)}
+  .hero-cards .hero-card:nth-child(3){display:none}
+  .services-grid{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-row{grid-template-columns:repeat(3,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);align-items:center;justify-content:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90%;max-height:90vh;border-radius:8px;object-fit:contain}
+.lightbox-close{position:absolute;top:24px;right:24px;color:white;font-size:32px;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="#" class="logo"><img src="img/logo.png" alt="Purple Label Studio"></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="hero-tag">Los Angeles, CA</p>
+  <h1>Custom Embroidery<br>& Apparel Printing</h1>
+  <p>Premium quality embroidery, screen printing, and custom apparel for brands, teams, and businesses in LA.</p>
+  <a href="#contact" class="hero-btn">Start Your Project</a>
+  <div class="hero-cards">
+    <div class="hero-card"><img src="img/hero-01.jpg" alt="Custom Caps"></div>
+    <div class="hero-card"><img src="img/hero-02.jpg" alt="Custom Patches"></div>
+    <div class="hero-card"><img src="img/hero-03.jpg" alt="Custom Sneakers"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-header fade-in">
+    <p class="section-tag">What We Do</p>
+    <h2 class="section-title">Our Services</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">🧵</div>
+      <h3>Custom Embroidery</h3>
+      <p>From flat embroidery to 3D puff, we bring your designs to life on caps, jackets, shirts, and more with precision stitching.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🎨</div>
+      <h3>Screen Printing</h3>
+      <p>High-quality screen printing for t-shirts, hoodies, and apparel. Vibrant colors and durable prints for any quantity.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">✂️</div>
+      <h3>Custom Patches</h3>
+      <p>Embroidered patches, woven patches, and chenille patches. Perfect for branding, merchandise, and team gear.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🧢</div>
+      <h3>Custom Headwear</h3>
+      <p>Snapbacks, dad hats, trucker caps, bucket hats — fully customized with your logo and brand identity.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">👔</div>
+      <h3>Work Uniforms</h3>
+      <p>Professional work jackets, shirts, and uniforms with custom embroidery for businesses, shops, and teams.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">⚡</div>
+      <h3>Chain Stitch</h3>
+      <p>Vintage-style chain stitch embroidery for a unique hand-crafted look. Perfect for denim, jackets, and premium pieces.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="portfolio">
+  <div class="section-header fade-in">
+    <p class="section-tag">Our Work</p>
+    <h2 class="section-title">Portfolio</h2>
+  </div>
+  <div class="portfolio-filters fade-in">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="caps">Caps</button>
+    <button class="filter-btn" data-filter="patches">Patches</button>
+    <button class="filter-btn" data-filter="apparel">Apparel</button>
+    <button class="filter-btn" data-filter="printing">Printing</button>
+    <button class="filter-btn" data-filter="custom">Custom</button>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item fade-in" data-category="caps"><img src="img/port-01.jpg" alt="Syndicate Snapback"><div class="overlay"><div><h4>Syndicate Snapback</h4><span>Custom Embroidery</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="caps"><img src="img/port-02.jpg" alt="LA Rose Collection"><div class="overlay"><div><h4>LA Rose Collection</h4><span>3D Puff Embroidery</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="caps"><img src="img/port-03.jpg" alt="Angel City Motorcycles"><div class="overlay"><div><h4>Angel City Motorcycles</h4><span>3D Puff Cap</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="caps"><img src="img/port-04.jpg" alt="800 Bound Dad Hat"><div class="overlay"><div><h4>800 Bound</h4><span>Dad Hat Embroidery</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="caps"><img src="img/port-05.jpg" alt="Chai Angel Cap"><div class="overlay"><div><h4>Chai Angel</h4><span>Trucker Cap</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="caps"><img src="img/port-06.jpg" alt="Custom Bucket Hat"><div class="overlay"><div><h4>Dodgers Bucket</h4><span>Custom Headwear</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="patches"><img src="img/port-07.jpg" alt="Name Patches"><div class="overlay"><div><h4>Name Patches</h4><span>Oval Embroidered</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="patches"><img src="img/port-08.jpg" alt="Tiger Patches"><div class="overlay"><div><h4>Tokyo Tiger</h4><span>Custom Patches</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="patches"><img src="img/port-09.jpg" alt="Cactus Patches"><div class="overlay"><div><h4>Cactus Sunset</h4><span>Embroidered Patches</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="apparel"><img src="img/port-10.jpg" alt="Fantasies Jacket"><div class="overlay"><div><h4>Fantasies Live</h4><span>Custom Work Jacket</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="apparel"><img src="img/port-11.jpg" alt="Custom Dickies Shirt"><div class="overlay"><div><h4>Custom Dickies</h4><span>Embroidered Work Shirt</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="apparel"><img src="img/port-12.jpg" alt="Amalgam Jacket"><div class="overlay"><div><h4>Amalgam Jacket</h4><span>Custom Embroidery</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="apparel"><img src="img/port-13.jpg" alt="Concrete All-Stars"><div class="overlay"><div><h4>Concrete All-Stars</h4><span>Denim Jacket</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="apparel"><img src="img/port-14.jpg" alt="Kanji Bomber"><div class="overlay"><div><h4>Kanji Bomber</h4><span>Japanese Embroidery</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="printing"><img src="img/port-15.jpg" alt="Art Hoodie"><div class="overlay"><div><h4>Art Hoodie</h4><span>Screen Print</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="printing"><img src="img/port-16.jpg" alt="Skull T-Shirt"><div class="overlay"><div><h4>Skull T-Shirt</h4><span>Custom Print</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="custom"><img src="img/port-17.jpg" alt="Custom Sneaker"><div class="overlay"><div><h4>Custom Sneaker</h4><span>Embroidered Kicks</span></div></div></div>
+    <div class="portfolio-item fade-in" data-category="custom"><img src="img/port-18.jpg" alt="Chain Stitch Pants"><div class="overlay"><div><h4>Chain Stitch Pants</h4><span>Custom Denim</span></div></div></div>
+  </div>
+</section>
+
+<div class="gallery-strip">
+  <div class="gallery-row">
+    <img src="img/gal-01.jpg" alt="Studio">
+    <img src="img/gal-02.jpg" alt="Graduation Stoles">
+    <img src="img/gal-03.jpg" alt="Workshop">
+    <img src="img/gal-04.jpg" alt="Stoles Collection">
+    <img src="img/gal-05.jpg" alt="Work Jackets">
+    <img src="img/gal-06.jpg" alt="Store Display">
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="section-header fade-in">
+    <p class="section-tag">About Us</p>
+    <h2 class="section-title">Purple Label Studio</h2>
+  </div>
+  <div class="about-content fade-in">
+    <p>Based in Los Angeles, Purple Label Studio specializes in premium custom embroidery, screen printing, and apparel decoration. We work with brands, businesses, teams, and individuals to create high-quality custom products.</p>
+    <p>From intricate chain stitch work to bold 3D puff embroidery, our team brings decades of experience and a passion for craftsmanship to every project. Whether you need 12 pieces or 12,000 — we've got you covered.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header fade-in">
+    <p class="section-tag">Let's Work Together</p>
+    <h2 class="section-title">Get In Touch</h2>
+  </div>
+  <div class="contact-content fade-in">
+    <p>Ready to start your custom project? Reach out and let's bring your vision to life.</p>
+    <div class="contact-grid">
+      <div class="contact-item"><h4>Email</h4><p>info@purplelabelstudio.com</p></div>
+      <div class="contact-item"><h4>Phone</h4><p>(213) 555-0192</p></div>
+      <div class="contact-item"><h4>Location</h4><p>Los Angeles, CA</p></div>
+      <div class="contact-item"><h4>Hours</h4><p>Mon–Fri 9AM–6PM</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="img/logo.png" alt="Purple Label Studio"></div>
+  <p>&copy; 2026 Purple Label Studio. All rights reserved.</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close">&times;</div>
+  <img src="" alt="">
+</div>
+
+<script>
+// Portfolio filter
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.portfolio-item').forEach(item=>{
+      item.classList.toggle('hidden',f!=='all'&&item.dataset.category!==f);
+    });
+  });
+});
+
+// Scroll animations
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Lightbox
+const lb=document.getElementById('lightbox');
+const lbImg=lb.querySelector('img');
+document.querySelectorAll('.portfolio-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    lbImg.src=item.querySelector('img').src;
+    lb.classList.add('active');
+  });
+});
+lb.addEventListener('click',()=>lb.classList.remove('active'));
+
+// Header scroll effect
+window.addEventListener('scroll',()=>{
+  document.querySelector('header').style.boxShadow=window.scrollY>50?'0 2px 20px rgba(0,0,0,.08)':'none';
+});
+</script>
+</body>
+</html>
