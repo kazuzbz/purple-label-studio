@@ -77,13 +77,24 @@ section{padding:100px 24px}
 .about-content{max-width:700px;margin:0 auto;text-align:center}
 .about-content p{color:var(--gray);font-size:16px;line-height:1.8;margin-bottom:20px}
 
-/* Contact */
-.contact-content{max-width:600px;margin:0 auto;text-align:center}
-.contact-content p{color:var(--gray);font-size:16px;margin-bottom:32px}
-.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;text-align:left}
-.contact-item{background:var(--light);padding:24px;border-radius:12px}
-.contact-item h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px}
-.contact-item p{color:var(--black);font-size:15px;margin:0}
+/* Quote Form */
+.quote-form{max-width:640px;margin:0 auto}
+.quote-form label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px}
+.quote-form input,.quote-form textarea,.quote-form select{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;background:var(--light);transition:border-color .3s;margin-bottom:20px;resize:vertical}
+.quote-form input:focus,.quote-form textarea:focus,.quote-form select:focus{outline:none;border-color:var(--black)}
+.quote-form textarea{min-height:120px}
+.quote-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.file-upload{border:2px dashed #ccc;border-radius:12px;padding:32px;text-align:center;cursor:pointer;transition:border-color .3s,background .3s;margin-bottom:20px;position:relative}
+.file-upload:hover{border-color:var(--black);background:var(--light)}
+.file-upload input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.file-upload p{color:var(--gray);font-size:14px;margin:0}
+.file-upload p strong{color:var(--black)}
+.quote-submit{display:inline-block;background:var(--black);color:var(--white);padding:16px 48px;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:.5px;cursor:pointer;transition:transform .3s}
+.quote-submit:hover{transform:scale(1.05)}
+.quote-info{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px;text-align:left}
+.quote-info-item{background:var(--light);padding:20px;border-radius:12px}
+.quote-info-item h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:6px}
+.quote-info-item p{color:var(--black);font-size:15px;margin:0}
 
 /* Footer */
 footer{background:var(--dark);color:var(--white);padding:60px 24px;text-align:center}
@@ -109,7 +120,8 @@ footer p{color:rgba(255,255,255,.4);font-size:13px}
   .services-grid{grid-template-columns:1fr}
   .portfolio-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-row{grid-template-columns:repeat(2,1fr)}
-  .contact-grid{grid-template-columns:1fr}
+  .quote-row{grid-template-columns:1fr}
+  .quote-info{grid-template-columns:1fr}
   .footer-logo img{height:28px}
 }
 
@@ -244,18 +256,48 @@ footer p{color:rgba(255,255,255,.4);font-size:13px}
 
 <section id="contact">
   <div class="section-header fade-in">
-    <p class="section-tag">Let's Work Together</p>
-    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-tag">Start Your Project</p>
+    <h2 class="section-title">Get a Quote</h2>
   </div>
-  <div class="contact-content fade-in">
-    <p>Ready to start your custom project? Reach out and let's bring your vision to life.</p>
-    <div class="contact-grid">
-      <div class="contact-item"><h4>Email</h4><p>info@purplelabelstudio.com</p></div>
-      <div class="contact-item"><h4>Phone</h4><p>(213) 555-0192</p></div>
-      <div class="contact-item"><h4>Location</h4><p>Los Angeles, CA</p></div>
-      <div class="contact-item"><h4>Hours</h4><p>Mon–Fri 9AM–6PM</p></div>
+  <form class="quote-form fade-in" action="https://formsubmit.co/info@purplelabelstudio.com" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_subject" value="New Quote Request from Website">
+    <input type="hidden" name="_captcha" value="false">
+    <div class="quote-row">
+      <div><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+      <div><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
     </div>
-  </div>
+    <div class="quote-row">
+      <div><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx"></div>
+      <div>
+        <label for="service">Service</label>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option value="embroidery">Custom Embroidery</option>
+          <option value="screen-printing">Screen Printing</option>
+          <option value="patches">Patches</option>
+          <option value="caps">Custom Caps</option>
+          <option value="jackets">Jackets & Outerwear</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+    <label for="details">Project Details</label>
+    <textarea id="details" name="details" placeholder="Tell us about your project — quantity, colors, placement, deadline, etc." required></textarea>
+    <label>Artwork / Reference Image</label>
+    <div class="file-upload">
+      <input type="file" name="attachment" accept="image/*,.pdf,.ai,.eps,.svg" multiple>
+      <p><strong>Click to upload</strong> or drag files here<br>PNG, JPG, PDF, AI, EPS, SVG</p>
+    </div>
+    <div style="text-align:center">
+      <button type="submit" class="quote-submit">Submit Quote Request</button>
+    </div>
+    <div class="quote-info">
+      <div class="quote-info-item"><h4>Email</h4><p>info@purplelabelstudio.com</p></div>
+      <div class="quote-info-item"><h4>Phone</h4><p>(213) 555-0192</p></div>
+      <div class="quote-info-item"><h4>Location</h4><p>Los Angeles, CA</p></div>
+      <div class="quote-info-item"><h4>Hours</h4><p>Mon–Fri 9AM–6PM</p></div>
+    </div>
+  </form>
 </section>
 
 <footer>
